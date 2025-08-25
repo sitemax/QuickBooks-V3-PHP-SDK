@@ -11,15 +11,15 @@ namespace QuickBooksOnline\API\Data;
 class IPPEmployee
 	extends IPPNameBase	{
 
-		/**                                                                       
-		* Initializes this object, optionally with pre-defined property values    
-		*                                                                         
+		/**
+		* Initializes this object, optionally with pre-defined property values
+		*
 		* Initializes this object and it's property members, using the dictionary
-		* of key/value pairs passed as an optional argument.                      
-		*                                                                         
-		* @param dictionary $keyValInitializers key/value pairs to be populated into object's properties 
-		* @param boolean $verbose specifies whether object should echo warnings   
-		*/                                                                        
+		* of key/value pairs passed as an optional argument.
+		*
+		* @param dictionary $keyValInitializers key/value pairs to be populated into object's properties
+		* @param boolean $verbose specifies whether object should echo warnings
+		*/
 		public function __construct($keyValInitializers=array(), $verbose=FALSE)
 		{
 			foreach($keyValInitializers as $initPropName => $initPropVal)
@@ -36,7 +36,7 @@ class IPPEmployee
 			}
 		}
 
-	
+
 	/**
 	 * @Definition Specifies the Employee type. For QuickBooks Desktop the valid values are defined in the EmployeeTypeEnum.
 	 * @xmlType element
@@ -51,7 +51,7 @@ class IPPEmployee
 								Length Restriction:
 								QBO: 15
 								QBD: 99
-							
+
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -64,7 +64,7 @@ class IPPEmployee
 								Length Restriction:
 								QBO: 15
 								QBD: 1024
-							
+
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -74,7 +74,7 @@ class IPPEmployee
 	public $SSN;
 	/**
 	 * @Definition  Represents primary PhysicalAddress list
-							
+
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -85,7 +85,7 @@ class IPPEmployee
 	public $PrimaryAddr;
 	/**
 	 * @Definition  Represents other PhysicalAddress list
-							
+
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -97,7 +97,7 @@ class IPPEmployee
 	/**
 	 * @Definition BillableTime should be true if this employee’s hours are typically billed to customers. QBO only.
 									QBD Unsupported field.
-							
+
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -108,7 +108,7 @@ class IPPEmployee
 	/**
 	 * @Definition If BillableTime is true, BillRate can be set to specify this employee’s hourly billing rate. QBO only.
 								QBD Unsupported field.
-							
+
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -172,7 +172,7 @@ class IPPEmployee
 	public $EmployeeEx;
 	/**
 	 * @Definition Auto generated Public ID when new employee added to QBO. (ReadOnly)
-							
+
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -180,6 +180,28 @@ class IPPEmployee
 	 * @var string
 	 */
 	public $V4IDPseudonym;
+	/**
+	 * @Definition Hourly cost rate of the Employee. QBO only. QBD Unsupporetd field.
 
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName CostRate
+	 * @var float
+	 */
+	public $CostRate;
+	/**
+	 * @Definition
+								Product: ALL
+								Description: Free form text describing the Employee.[br /]Max. length: 4000 characters.
+
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlMaxOccurs 1
+	 * @xmlName Notes
+	 * @var string
+	 */
+	public $Notes;
 
 } // end class IPPEmployee
